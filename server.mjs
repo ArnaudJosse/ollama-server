@@ -3,7 +3,7 @@ import express from 'express';
 import { Ollama } from 'ollama';
 
 const app = express(); // Instance d'Express
-const port = 80; // Port à l'écoute
+const port = 8080; // Port à l'écoute
 
 app.use(express.json());
 
