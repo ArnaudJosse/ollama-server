@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiwIA</title>
+    <style>
+    /* à personnaliser selon vos envies */
+    body { font-family: system-ui; background: #222; color: #fff; padding: 2rem; }
+    #chat, [type=submit] { padding: 1rem; border-radius: 0.5rem; border: 1px solid #ccc; margin: 1rem 0; background: inherit; color: inherit; }
+    #chat { min-width: 20rem; font-size: inherit; }
+    #reponse { text-align: left; line-height: 2; }
+    </style>
+</head>
+<body>
+<h1>Chat KiwIA 🥝</h1>
+
+<form>
+    <input type="text" id="chat" placeholder="Votre message...">
+    <button type="submit">Envoyer</button>
+</form>
+<div id="reponse"></div>
+
+<script>
+    const form = document.querySelector('form');
+    const input = document.querySelector('#chat');
+    const resultat = document.querySelector('#reponse');
+
+    // À la validation du formulaire
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // On récupère le contenu du message
+        const content = input.value.trim();
+        if (!content) return; // Si c'est vide on arrête là
+
+        // Petit message d'attente
+        resultat.textContent = 'Un instant et je suis à vous...';
+        // On vide le champ d'entrée
+        input.value = '';
+
+        try {
+            // Requête asynchrone en POST vers /chat
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                // Corps de la requête en JSON
+                body: JSON.stringify({ content }),
+            });
+
+            resultat.textContent = '';
+
+            // On instancie une interface ReadableStream
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+
+            // Tant qu'on a du contenu...
+            while (true) {
+                const { done, value } = await reader.read(); // On lit
+                if (done) break;
+
+                const lines = decoder.decode(value).split('\n');
+
+                // On itère sur la réponse reçue pour alimenter le résultat
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const data = JSON.parse(line.slice(6));
+                        resultat.textContent += data.content;
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            resultat.textContent = 'Une erreur est survenue.';
+        }
+    });
+</script>
+
+</body>
+</html>

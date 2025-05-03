@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "ollama": "^0.5.15"
+  },
+  "name": "ollama-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
