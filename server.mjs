@@ -10,7 +10,7 @@ app.use(express.json());
 // On sert le dossier public en statique, dans lequel on place notre page index.html
 app.use(express.static('public'));
 app.get('/',function (req,res){
-  res.sendfile ('index.html');
+  res.sendFile ('public/index.html');
 })
 // On accepte les requêtes POST vers /chat
 app.post('/chat', async (req, res) => {
