@@ -4,13 +4,14 @@ import { Ollama } from 'ollama';
 
 const app = express(); // Instance d'Express
 const port = 3000; // Port à l'écoute
+const path =require("path");
 
 app.use(express.json());
 
 // On sert le dossier public en statique, dans lequel on place notre page index.html
 app.use(express.static('public'));
 app.get('/',function (req,res){
-  res.sendFile ('public/index.html');
+  res.sendFile (path.join(__dirname+'/index.html'));
 })
 // On accepte les requêtes POST vers /chat
 app.post('/chat', async (req, res) => {
