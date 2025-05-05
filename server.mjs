@@ -1,10 +1,11 @@
 import express from 'express';
 //import ollama from 'ollama';
+import 'path';
 import { Ollama } from 'ollama';
 
 const app = express(); // Instance d'Express
 const port = 3000; // Port à l'écoute
-const path =require("path");
+const path = path();
 
 app.use(express.json());
 
