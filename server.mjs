@@ -1,7 +1,8 @@
 import express from 'express';
 //import ollama from 'ollama';
 import { fileURLToPath } from 'url';
-import { path, dirname } from 'path';
+import path from 'path';
+import { dirname } from 'path';
 import { Ollama } from 'ollama';
 
 const app = express(); // Instance d'Express
