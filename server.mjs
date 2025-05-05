@@ -1,13 +1,16 @@
 import express from 'express';
 //import ollama from 'ollama';
-import path from 'path';
+import { fileURLToPath } from 'url';
+import { path, dirname } from 'path';
 import { Ollama } from 'ollama';
 
 const app = express(); // Instance d'Express
 const port = 3000; // Port à l'écoute
-
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname (__filename)
 
 app.use(express.json());
+
 
 // On sert le dossier public en statique, dans lequel on place notre page index.html
 app.use(express.static('public'));
