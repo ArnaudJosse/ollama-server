@@ -1,6 +1,6 @@
 import express from 'express';
 //import ollama from 'ollama';
-import 'path';
+import path from 'path';
 import { Ollama } from 'ollama';
 
 const app = express(); // Instance d'Express
