@@ -37,6 +37,7 @@
     //récupération des modèles
     const response= await fetch ("http://192.168.1.14:11434/api/tags",{
         method: "GET",
+        mode: "no-cors",
         
     })
     const listOfModels=await response.json()
