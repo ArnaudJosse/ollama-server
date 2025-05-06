@@ -8,12 +8,12 @@
     /* à personnaliser selon vos envies */
     body { font-family: system-ui; background: #222; color: #fff; padding: 2rem; }
     #chat, [type=submit] { padding: 1rem; border-radius: 0.5rem; border: 1px solid #ccc; margin: 1rem 0; background: inherit; color: inherit; }
-    #chat { min-width: 20rem; font-size: inherit; }
+    #chat { min-width: 30rem; font-size: inherit; }
     #reponse { text-align: left; line-height: 2; }
     </style>
 </head>
 <body>
-<h1>Chat KiwIA 🥝</h1>
+<h1>Chat Local 🥝</h1>
 
 <form>
     <input type="text" id="chat" placeholder="Votre message...">
@@ -25,6 +25,18 @@
     const form = document.querySelector('form');
     const input = document.querySelector('#chat');
     const resultat = document.querySelector('#reponse');
+
+    //récupération des modèles
+    const models=await fetch ("http://192.168.1.14:11434/api/tags",{
+        method: "GET",
+        headers: {
+                    'Content-Type': 'application/json',
+                }
+    })
+    models.forEach(element => { console.log (element)
+        
+    });
+
 
     // À la validation du formulaire
     form.addEventListener('submit', async (e) => {
