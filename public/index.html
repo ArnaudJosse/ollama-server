@@ -16,6 +16,9 @@
 <h1>Chat Local 🥝</h1>
 
 <form>
+    <select id="modelSelector">
+
+    </select>
     <input type="text" id="chat" placeholder="Votre message...">
     <button type="submit">Envoyer</button>
 </form>
@@ -33,12 +36,19 @@
                     'Content-Type': 'application/json',
                 }
     })
-    const models=await response.json()
-    console.log(typeof(models.models))
-    console.log(models.models)
-    for (const model of models.models)
+    const listOfModels=await response.json()
+    //console.log(typeof(models.models))
+    //console.log(models.models)
+    const models=listOfModels.models
+    selectElement=document.getElementById ("modelSelector")
+    for (const model of models)
     {
+
         console.log (model.name)
+        const option=document.createElement('option')
+        option.value=model.name
+        option.textContent=model.name
+        selectElement.appendChild (option)
     }
 
 
