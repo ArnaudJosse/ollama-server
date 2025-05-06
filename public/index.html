@@ -9,7 +9,7 @@
     body { font-family: system-ui; background: #222; color: #fff; padding: 2rem; }
     #chat, [type=submit] { padding: 1rem; border-radius: 0.5rem; border: 1px solid #ccc; margin: 1rem 0; background: inherit; color: inherit; }
     #chat { min-width: 50rem; font-size: inherit; }
-    #reponse { text-align: left; line-height: 2; font-size: 18px; padding: 8px}
+    #reponse { text-align: left; line-height: 2; font-size: 18px!important; padding: 1rem; }
     #modelSelector { line-height: 2;}
     </style>
 </head>
@@ -48,7 +48,7 @@
     for (const model of models)
     {
 
-        console.log (model.name)
+        //console.log (model.name)
         const option=document.createElement('option')
         option.value=model.name
         option.textContent=model.name
