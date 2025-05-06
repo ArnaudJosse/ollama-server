@@ -34,7 +34,10 @@
                 }
     })
     models=await response.json()
-    models.forEach(element => console.log (element));
+    for (const model of models)
+    {
+        console.log (model)
+    }
 
 
     // À la validation du formulaire
