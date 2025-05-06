@@ -36,9 +36,9 @@
     const models=await response.json()
     console.log(typeof(models.models))
     console.log(models.models)
-    for (const model of models)
+    for (const model of models.models)
     {
-        console.log (model)
+        console.log (model.name)
     }
 
 
