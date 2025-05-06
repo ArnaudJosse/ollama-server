@@ -67,8 +67,8 @@
         // On récupère le contenu du message
         const content = input.value.trim();
         //on récupère le nom du modèle
-        const model = selector.value.trim();
-        console.log (model)
+        let model = selector.value.trim();
+        
         if (model==="") {
             model="qwen2.5-coder:14b";
         }
