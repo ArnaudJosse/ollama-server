@@ -33,7 +33,7 @@
                     'Content-Type': 'application/json',
                 }
     })
-    models=response.json()
+    models=await response.json()
     models.forEach(element => console.log (element));
 
 
