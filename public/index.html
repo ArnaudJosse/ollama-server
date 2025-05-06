@@ -9,7 +9,7 @@
     body { font-family: system-ui; background: #222; color: #fff; padding: 2rem; }
     #chat, [type=submit] { padding: 1rem; border-radius: 0.5rem; border: 1px solid #ccc; margin: 1rem 0; background: inherit; color: inherit; }
     #chat { min-width: 50rem; font-size: inherit; }
-    #reponse { text-align: left; line-height: 2; }
+    #reponse { text-align: left; line-height: 2; font-size: 18px; padding: 8px}
     #modelSelector { line-height: 2;}
     </style>
 </head>
@@ -17,12 +17,12 @@
 <h1>Chat Local 🥝</h1>
 
 <form>
-    <label for="modelSelector">Sélectionnez un modèle de langage</label>
+    <label for="modelSelector">Sélectionnez un modèle de langage :</label>
     <select id="modelSelector">
 
     </select>
     <br>
-    <input type="text" id="chat" placeholder="Votre message...">
+    <input type="text" id="chat" placeholder="Votre prompt ...">
     <button type="submit">Envoyer</button>
 </form>
 <div id="reponse"></div>
