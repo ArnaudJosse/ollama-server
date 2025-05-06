@@ -27,7 +27,7 @@
     const resultat = document.querySelector('#reponse');
 
     //récupération des modèles
-    const models=await fetch ("http://192.168.1.14:11434/api/tags",{
+    const models= fetch ("http://192.168.1.14:11434/api/tags",{
         method: "GET",
         headers: {
                     'Content-Type': 'application/json',
