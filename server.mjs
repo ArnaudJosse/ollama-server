@@ -24,7 +24,8 @@ app.post('/chat', async (req, res) => {
   const message = { role: 'user', content: req.body.content };
   const ollama = new Ollama({ host: 'http://192.168.1.14:11434' })
   // La réponse provenant du LLM est une promesse
-  const response = await ollama.chat({ model: 'qwen2.5-coder:14b', messages: [message], stream: true });
+  //const response = await ollama.chat({ model: 'qwen2.5-coder:14b', messages: [message], stream: true });
+  const response = await ollama.chat({ model: req.body.model, messages: [message], stream: true });
 
   // La réponse envoyée à la page web dispose d'en-têtes HTTP
   // ... permettant de faire persister la connexion

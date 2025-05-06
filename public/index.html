@@ -30,6 +30,7 @@
 <script type="module">
     const form = document.querySelector('form');
     const input = document.querySelector('#chat');
+    const selector = document.querySelector('#modelSelector');
     const resultat = document.querySelector('#reponse');
 
     //récupération des modèles
@@ -61,6 +62,8 @@
 
         // On récupère le contenu du message
         const content = input.value.trim();
+        //on récupère le nom du modèle
+        const model = selector.value.trim();
         if (!content) return; // Si c'est vide on arrête là
 
         // Petit message d'attente
@@ -76,7 +79,7 @@
                     'Content-Type': 'application/json',
                 },
                 // Corps de la requête en JSON
-                body: JSON.stringify({ content }),
+                body: JSON.stringify({ 'model': model,'content': content }),
             });
 
             resultat.textContent = '';
