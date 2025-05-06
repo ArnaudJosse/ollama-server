@@ -37,10 +37,7 @@
     //récupération des modèles
     const response= await fetch ("http://192.168.1.14:11434/api/tags",{
         method: "GET",
-        headers: {
-                    'Content-Type': 'application/json',
-                    
-                }
+        
     })
     const listOfModels=await response.json()
     //console.log(typeof(models.models))
