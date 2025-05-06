@@ -69,6 +69,10 @@
         //on récupère le nom du modèle
         const model = selector.value.trim();
         console.log (model)
+        if (model==="") {
+            model="qwen2.5-coder:14b";
+        }
+
         if (!content) return; // Si c'est vide on arrête là
 
         // Petit message d'attente
