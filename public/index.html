@@ -27,13 +27,13 @@
     const resultat = document.querySelector('#reponse');
 
     //récupération des modèles
-    const models= await fetch ("http://192.168.1.14:11434/api/tags",{
+    const response= await fetch ("http://192.168.1.14:11434/api/tags",{
         method: "GET",
         headers: {
                     'Content-Type': 'application/json',
                 }
     })
-    console.log(models.json())
+    models=response.json())
     models.forEach(element => console.log (element));
 
 
