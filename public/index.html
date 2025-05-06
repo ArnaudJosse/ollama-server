@@ -34,6 +34,7 @@
     const selector = document.querySelector('#modelSelector');
     const resultat = document.querySelector('#reponse');
 
+    try {
     //récupération des modèles
     const response= await fetch ("http://192.168.1.14:11434/api/tags",{
         method: "GET",
@@ -53,6 +54,9 @@
         option.value=model.name
         option.textContent=model.name
         selectElement.appendChild (option)
+    }
+    } catch (error) {
+        console.error('Error:', error);
     }
 
 
