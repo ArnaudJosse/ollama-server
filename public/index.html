@@ -10,8 +10,14 @@
     #chat, [type=submit] { padding: 1rem; border-radius: 0.5rem; border: 1px solid #ccc; margin: 1rem 0; background: inherit; color: inherit; }
     #chat { min-width: 80%; font-size: inherit; }
     #reponse { text-align: left; line-height: 2; }
-    #modelSelector { line-height: 2; font-size: 16px!important; padding: 1rem; }
-    #modelLabel { font-size: 18px!important; padding: 0.5rem; }
+    @media (max-width: 480px) {
+        #modelSelector { line-height: 2; font-size: 12px!important; padding: 1rem; }
+        #modelLabel { font-size: 14px!important; padding: 0.5rem; }
+    }
+    @media (min-width: 481px) {
+        #modelSelector { line-height: 2; font-size: 16px!important; padding: 1rem; }
+        #modelLabel { font-size: 18px!important; padding: 0.5rem; }
+    }
     </style>
 </head>
 <body>
